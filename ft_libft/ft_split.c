@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tbaniatt <tbaniatt@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tbaniatt <tbaniatt@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 08:47:58 by tbaniatt          #+#    #+#             */
-/*   Updated: 2024/09/04 19:49:02 by tbaniatt         ###   ########.fr       */
+/*   Updated: 2024/12/04 16:24:35 by tbaniatt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,64 +100,3 @@ char	**ft_split(char const *s, char c)
 	str[count] = NULL;
 	return (str);
 }
-
-// static char *null(char *news, char c)
-// {
-// 	int	x;
-
-// 	x = 0;
-// 	while (news[x])
-// 	{
-// 		if (news[x] == c)
-// 		{
-// 			news[x] = '\0'
-// 			x++;
-// 		}
-// 		else
-// 			x++;
-// 	}
-// 	return (news);
-// }
-
-// static size_t numc(char * pstr, char c)
-// {
-// 	int	i;
-// 	int	nc;
-
-// 	i = 0;
-// 	nc = 0;
-// 	while(pstr[i])
-// 	{
-// 		if (pstr[x] == c)
-// 			nc++;
-// 		i++;
-// 	}
-// 	return (nc);
-// }
-// static char copy(char *str)
-// {
-// 	char        *cc;
-//         int                x;
-
-//         x = 0;
-//         whiel(*str)
-// 	{
-// 		cc[x] = str[x];
-// 		x++;
-// 	}
-// 	cc[x] = '\0';
-// 	return (cc);
-// }
-
-// char	**ft_split(char const *s, char c)
-// {
-// 	char        **tab;
-// 	size_t	len;
-
-// 	len = ft_strlen(s);
-// 	null((char *)s,c);
-// 	tab = malloc(sizeof(char *) * (numc(s, c) + 1));
-// 	while (len-- > 0)
-// 	{
-// 	}
-// }
