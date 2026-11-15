@@ -62,6 +62,23 @@ char	*get_command(char **cmd_path, char *cmd)
 	return (NULL);
 }
 
+int	wait_children(t_cmd *cmd)
+{
+	int	status;
+	int	code;
+
+	code = 1;
+	if (cmd->fd1 > 0)
+		waitpid(cmd->pid1, NULL, 0);
+	if (cmd->fd2 >= 0)
+	{
+		waitpid(cmd->pid2, &status, 0);
+		if (WIFEXITED(status))
+			code = WEXITSTATUS(status);
+	}
+	return (code);
+}
+
 int	main(int argc, char **argv, char **env)
 {
 	t_cmd	cmd;
@@ -85,7 +102,7 @@ int	main(int argc, char **argv, char **env)
 	if (cmd.fd2 >= 0)
 		create_child2(&cmd, argv, env);
 	close_command(&cmd);
-	waitpid(-1, NULL, 0);
-	waitpid(-1, NULL, 0);
+	p = wait_children(&cmd);
 	parent_free(&cmd);
+	return (p);
 }

@@ -46,7 +46,7 @@ void	child1(t_cmd *cmd, char **argv, char **env)
 	if (cmd->cmd == NULL)
 	{
 		child_free(cmd);
-		error_message("Error: Command_1 not found\n", cmd);
+		cmd_not_found("Error: Command_1 not found\n", cmd);
 	}
 	if (execve(cmd->cmd, cmd->args, env) == -1)
 	{
@@ -71,7 +71,7 @@ void	child2(t_cmd *cmd, char **argv, char **env)
 	if (cmd->cmd == NULL)
 	{
 		child_free(cmd);
-		error_message("Error: Command_2 not found\n", cmd);
+		cmd_not_found("Error: Command_2 not found\n", cmd);
 	}
 	if (execve(cmd->cmd, cmd->args, env) == -1)
 	{
@@ -79,4 +79,11 @@ void	child2(t_cmd *cmd, char **argv, char **env)
 		write(2, "execve failed\n", 14);
 		exit(1);
 	}
+}
+
+void	cmd_not_found(char *message, t_cmd *cmd)
+{
+	close_command(cmd);
+	write(2, message, ft_strlen(message));
+	exit(127);
 }

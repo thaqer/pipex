@@ -47,5 +47,7 @@ void		child2(t_cmd *cmd, char **argv, char **env);
 void		parent_free(t_cmd *pipex);
 void		close_command(t_cmd *cmd);
 void		error_process(char *massage, t_cmd *cmd);
+void		cmd_not_found(char *message, t_cmd *cmd);
+int			wait_children(t_cmd *cmd);
 
 #endif
